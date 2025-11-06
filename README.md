@@ -1,19 +1,19 @@
 <p align="center">
-<img src="/branding/plexboxd-banner.png" width="300">
+<img src="/branding/flexboxd-banner.png" width="300">
 
 
-# 🍿 Plexboxd
+# 🍿 Flexboxd
 <div align="center">
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/nate8727/plexboxd?logo=docker&style=flat-square)](https://hub.docker.com/r/nate8727/plexboxd)
-[![GitHub Release](https://img.shields.io/github/v/release/nate872711/plexboxd?logo=github&style=flat-square)](https://github.com/nate872711/plexboxd/releases)
-[![Build & Release](https://github.com/nate872711/plexboxd/actions/workflows/release.yml/badge.svg)](https://github.com/nate872711/plexboxd/actions/workflows/release.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nate8727/flexboxd?logo=docker&style=flat-square)](https://hub.docker.com/r/nate8727/flexboxd)
+[![GitHub Release](https://img.shields.io/github/v/release/nate872711/flexboxd?logo=github&style=flat-square)](https://github.com/nate872711/flexboxd/releases)
+[![Build & Release](https://github.com/nate872711/flexboxd/actions/workflows/release.yml/badge.svg)](https://github.com/nate872711/flexboxd/actions/workflows/release.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 </div>
 
 **Your Plex movies, your Letterboxd diary — finally in sync.**
 
-**Plexboxd** is a self-hosted integration bridge between **Plex**, **Letterboxd**, **Trakt**, and **IMDb**.  
+**Flexboxd** is a self-hosted integration bridge between **Plex**, **Letterboxd**, **Trakt**, and **IMDb**.  
 It syncs your watched movies and shows, updates your Letterboxd diary, manages watchlists and collections, and provides export/import utilities for your media ecosystem.
 
 ---
@@ -61,15 +61,15 @@ docker compose -f docker/docker-compose.yml up -d --build
 ```
 ### Clone the Repository
 ```bash
-git clone https://github.com/nate872711/plexboxd.git
-cd plexboxd
+git clone https://github.com/nate872711/flexboxd.git
+cd flexboxd
 ```
 ### Example docker compose
 ```yaml
 services:
-  plexboxd:
-    container_name: plexboxd
-    image: nate8727/plexboxd:latest
+  flexboxd:
+    container_name: flexboxd
+    image: nate8727/flexboxd:latest
     build:
       context: ..
       dockerfile: docker/Dockerfile
@@ -107,7 +107,7 @@ services:
       - "8089:8089"
     command: >
       bash -c "
-        echo 'Starting Plexboxd sync service...';
+        echo 'Starting Flexboxd sync service...';
         python -m src.main
       "
 ```
@@ -129,7 +129,7 @@ services:
 ### 2️⃣ Letterboxd Setup
 
 Letterboxd does not currently have a full public write API,  
-so Plexboxd uses CSV-based sync for diary entries.
+so Flexboxd uses CSV-based sync for diary entries.
 
 1. In your `.env`, set:
 
@@ -163,7 +163,7 @@ TRAKT_CLIENT_SECRET=your_trakt_client_secret
 TRAKT_ACCESS_TOKEN=your_trakt_access_token
 ```
 
-Once configured, Plexboxd can:
+Once configured, Flexboxd can:
 - Add IMDb movies to your Trakt watchlist  
 - Create or update Trakt lists from Plex collections  
 - Sync watched items from Plex to Trakt  
@@ -189,7 +189,7 @@ IMDB_WATCHLIST_CSV=/config/imdb/watchlist.csv
 
 ```
 # IMDb Watchlist → Trakt
-docker exec -it plexboxd python -c "from src.sync_jobs import sync_imdb_watchlist_to_trakt; import os; print(sync_imdb_watchlist_to_trakt(os.getenv('IMDB_WATCHLIST_CSV')))"
+docker exec -it flexboxd python -c "from src.sync_jobs import sync_imdb_watchlist_to_trakt; import os; print(sync_imdb_watchlist_to_trakt(os.getenv('IMDB_WATCHLIST_CSV')))"
 ```
 
 ---
