@@ -42,8 +42,9 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          echo "Building image with tag: $TAG_NAME"
-          docker build -t nate8727/plexboxd:$TAG_NAME -t nate8727/plexboxd:latest .
+          echo "Building Docker image using docker/Dockerfile"
+          echo "Tagging image as nate8727/plexboxd:$TAG_NAME and latest"
+          docker build -f docker/Dockerfile -t nate8727/plexboxd:$TAG_NAME -t nate8727/plexboxd:latest .
           docker push nate8727/plexboxd:$TAG_NAME
           docker push nate8727/plexboxd:latest
 
