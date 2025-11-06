@@ -1,5 +1,5 @@
 # ────────────────────────────────────────────────
-# Plexboxd Dockerfile
+# Flexboxd Dockerfile
 # Supports Plex, Letterboxd, IMDb, and Trakt syncs
 # ────────────────────────────────────────────────
 
@@ -27,8 +27,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Add a non-root user for security
-RUN useradd -m plexboxd
-USER plexboxd
+RUN useradd -m flexboxd
+USER flexboxd
 
 # Expose the default Flask/HTTP port for optional WebUI or API
 EXPOSE 8089
