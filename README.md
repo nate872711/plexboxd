@@ -54,6 +54,7 @@ It syncs your watched movies and shows, updates your Letterboxd diary, manages w
 - [ ] Rest API/SDK
 - [ ] Multi-User Support
 - [ ] TMDb Integration
+- [ ] And More
 
 ---
 
