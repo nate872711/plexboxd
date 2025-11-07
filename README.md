@@ -46,18 +46,18 @@ It syncs your watched movies and shows, updates your Letterboxd diary, manages w
 
 ## 🛣️ Roadmap
 
-- [ ] Git Tag Releases (e.g.,`v.1.0.1`, `v1.2.0`)
+- [x] Git Tag Releases (e.g.,`v.1.0.1`, `v1.2.0`)
+- [x] TV Libraries + TheTVDB + Serializd
+- [x] Music Libraries + Musicboard
+- [x] TMDb Integration
 - [ ] Web UI / Dashboard
 - [ ] Smart Retry + Failure Queue System
 - [ ] Bidirectional + Incremental Sync
-- [ ] TV Libraries + TheTVDB + Serializd
-- [ ] Music Libraries + Musicboard
 - [ ] Custom Lists Support
 - [ ] Token Refresh for All Services
 - [ ] Plugin Framework
 - [ ] Rest API/SDK
 - [ ] Multi-User Support
-- [ ] TMDb Integration
 - [ ] See [ROADMAP.md](ROADMAP.md) for Complete List
 
 ---
