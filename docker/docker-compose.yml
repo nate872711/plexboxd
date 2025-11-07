@@ -1,39 +1,97 @@
-version: "3.9"
 services:
   watchweave:
     image: nate8727/watchweave:latest
+    container_name: watchweave
     restart: unless-stopped
+    ports:
+      - "8089:8089"
+
     environment:
+      ##############################################################
+      # 🔧 GENERAL SETTINGS
+      ##############################################################
       TZ: Etc/UTC
       LOG_LEVEL: INFO
       SYNC_INTERVAL_MINUTES: 30
       SYNC_DIRECTION: "plex->trakt,letterboxd,imdb"
+
+      ##############################################################
+      # 🎬 PLEX
+      ##############################################################
       PLEX_ENABLED: true
       PLEX_SERVER_URL: "http://plex.local:32400"
       PLEX_TOKEN: ""
+      PLEX_USERNAME: ""
+
+      ##############################################################
+      # 📈 TAUTULLI (OPTIONAL)
+      ##############################################################
       TAUTULLI_ENABLED: false
       TAUTULLI_API_URL: ""
       TAUTULLI_API_KEY: ""
+
+      ##############################################################
+      # 🎞 TRAKT
+      ##############################################################
       TRAKT_ENABLED: true
       TRAKT_CLIENT_ID: ""
       TRAKT_CLIENT_SECRET: ""
       TRAKT_ACCESS_TOKEN: ""
       TRAKT_REFRESH_TOKEN: ""
+
+      ##############################################################
+      # 🎬 LETTERBOXD (OPTIONAL)
+      ##############################################################
       LETTERBOXD_ENABLED: false
       LETTERBOXD_USERNAME: ""
       LETTERBOXD_PASSWORD: ""
+
+      ##############################################################
+      # 🎥 IMDb (OPTIONAL)
+      ##############################################################
       IMDB_ENABLED: false
       IMDB_CSV_PATH: "/config/imdb_ratings.csv"
+
+      ##############################################################
+      # 📺 TheTVDB (OPTIONAL)
+      ##############################################################
       TVDB_ENABLED: false
       TVDB_API_KEY: ""
       TVDB_PIN: ""
+
+      ##############################################################
+      # 🎞 SERIALIZD (OPTIONAL)
+      ##############################################################
       SERIALIZD_ENABLED: false
       SERIALIZD_API_KEY: ""
+
+      ##############################################################
+      # 🎵 MUSICBOARD (OPTIONAL)
+      ##############################################################
       MUSICBOARD_ENABLED: false
       MUSICBOARD_USERNAME: ""
       MUSICBOARD_API_KEY: ""
+
+      ##############################################################
+      # 🎬 TMDb (OPTIONAL)
+      ##############################################################
       TMDB_ENABLED: false
       TMDB_API_KEY: ""
+
+      ##############################################################
+      # 🗂 CUSTOM LISTS → PLEX COLLECTIONS (OPTIONAL)
+      ##############################################################
       CUSTOM_LISTS_ENABLED: false
+
     volumes:
       - ./config:/config
+      - ./logs:/logs
+
+    # Optional: attach to a shared Docker network with Plex/Tautulli
+    # networks:
+    #   - plexnet
+
+# Optional shared network for media apps
+# networks:
+#   plexnet:
+#     driver: bridge
