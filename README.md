@@ -43,8 +43,16 @@ It syncs your watched movies and shows, updates your Letterboxd diary, manages w
 
 ## 🛣️ Roadmap
 
-- [ ] Local webui dashboard with sync stats + settings menu  
-- [ ] Smart retry + failure queue system  
+- [ ] Web UI / Dashboard
+- [ ] Smart Retry + Failure Queue System
+- [ ] Bidirectional + Incremental Sync
+- [ ] TV + Music Libraries
+- [ ] Custom Lists Support
+- [ ] Token Refresh for All Services
+- [ ] Plugin Framework
+- [ ] Rest API/SDK
+- [ ] Multi-User Support
+- [ ] TMDb Integration
 
 ---
 
