@@ -92,52 +92,95 @@ services:
       - "8089:8089"
 
     environment:
-      # 🌍 General
-      - TZ=Etc/UTC
-      - LOG_LEVEL=INFO
+      ##############################################################
+      # 🔧 GENERAL SETTINGS
+      ##############################################################
+      TZ: Etc/UTC
+      LOG_LEVEL: INFO
+      SYNC_INTERVAL_MINUTES: 30
+      SYNC_DIRECTION: "plex->trakt,letterboxd,imdb"
 
-      # 🎬 Plex
-      - PLEX_ENABLED=true
-      - PLEX_SERVER_URL=http://plex.local:32400
-      - PLEX_TOKEN=YOUR_PLEX_TOKEN
-      - PLEX_USERNAME=YOUR_PLEX_USERNAME
+      ##############################################################
+      # 🎬 PLEX
+      ##############################################################
+      PLEX_ENABLED: true
+      PLEX_SERVER_URL: "http://plex.local:32400"
+      PLEX_TOKEN: ""
+      PLEX_USERNAME: ""
 
-      # 📈 Tautulli
-      - TAUTULLI_ENABLED=true
-      - TAUTULLI_API_URL=http://tautulli.local:8181/api/v2
-      - TAUTULLI_API_KEY=YOUR_TAUTULLI_API_KEY
+      ##############################################################
+      # 📈 TAUTULLI (OPTIONAL)
+      ##############################################################
+      TAUTULLI_ENABLED: false
+      TAUTULLI_API_URL: ""
+      TAUTULLI_API_KEY: ""
 
-      # 🎞️ Trakt
-      - TRAKT_ENABLED=true
-      - TRAKT_CLIENT_ID=YOUR_TRAKT_CLIENT_ID
-      - TRAKT_CLIENT_SECRET=YOUR_TRAKT_CLIENT_SECRET
-      - TRAKT_ACCESS_TOKEN=YOUR_TRAKT_ACCESS_TOKEN
-      - TRAKT_REFRESH_TOKEN=YOUR_TRAKT_REFRESH_TOKEN
+      ##############################################################
+      # 🎞 TRAKT
+      ##############################################################
+      TRAKT_ENABLED: true
+      TRAKT_CLIENT_ID: ""
+      TRAKT_CLIENT_SECRET: ""
+      TRAKT_ACCESS_TOKEN: ""
+      TRAKT_REFRESH_TOKEN: ""
 
-      # 🎥 Letterboxd
-      - LETTERBOXD_ENABLED=true
-      - LETTERBOXD_USERNAME=YOUR_LETTERBOXD_USERNAME
-      - LETTERBOXD_PASSWORD=YOUR_LETTERBOXD_PASSWORD
+      ##############################################################
+      # 🎬 LETTERBOXD (OPTIONAL)
+      ##############################################################
+      LETTERBOXD_ENABLED: false
+      LETTERBOXD_USERNAME: ""
+      LETTERBOXD_PASSWORD: ""
 
-      # 🎬 IMDb
-      - IMDB_ENABLED=true
-      - IMDB_CSV_PATH=/config/imdb_ratings.csv
+      ##############################################################
+      # 🎥 IMDb (OPTIONAL)
+      ##############################################################
+      IMDB_ENABLED: false
+      IMDB_CSV_PATH: "/config/imdb_ratings.csv"
 
-      # 🔄 Sync
-      - SYNC_INTERVAL_MINUTES=30
-      - SYNC_DIRECTION=plex->trakt,letterboxd,imdb
+      ##############################################################
+      # 📺 TheTVDB (OPTIONAL)
+      ##############################################################
+      TVDB_ENABLED: false
+      TVDB_API_KEY: ""
+      TVDB_PIN: ""
+
+      ##############################################################
+      # 🎞 SERIALIZD (OPTIONAL)
+      ##############################################################
+      SERIALIZD_ENABLED: false
+      SERIALIZD_API_KEY: ""
+
+      ##############################################################
+      # 🎵 MUSICBOARD (OPTIONAL)
+      ##############################################################
+      MUSICBOARD_ENABLED: false
+      MUSICBOARD_USERNAME: ""
+      MUSICBOARD_API_KEY: ""
+
+      ##############################################################
+      # 🎬 TMDb (OPTIONAL)
+      ##############################################################
+      TMDB_ENABLED: false
+      TMDB_API_KEY: ""
+
+      ##############################################################
+      # 🗂 CUSTOM LISTS → PLEX COLLECTIONS (OPTIONAL)
+      ##############################################################
+      CUSTOM_LISTS_ENABLED: false
 
     volumes:
       - ./config:/config
       - ./logs:/logs
-      # /your-config-directory:/config (optional)
 
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8089/health || exit 1"]
-      interval: 60s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
+    # Optional: attach to a shared Docker network with Plex/Tautulli
+    # networks:
+    #   - plexnet
+
+# Optional shared network for media apps
+# networks:
+#   plexnet:
+#     driver: bridge
+
 ```
 ---
 
@@ -221,8 +264,71 @@ services:
    IMDB_ENABLED=true
    IMDB_CSV_PATH=/config/imdb_ratings.csv
    ```
+   
+---
+
+### <img src="/src/assets/TheTVDB-icon.png" width="20"> TheTVDB
+1. Create an API key and user PIN from your [TheTVDB account settings](https://thetvdb.com/dashboard/account).
+2. Enable in Docker Compose:
+   ```
+   TVDB_ENABLED: true
+   TVDB_API_KEY: "your-key"
+   TVDB_PIN: "your-pin"
+   ```
+3. Used to enhance TV metadata and episode matching.
+   
 
 ---
+
+### <img src="/src/assets/serializd-icon.png" width="20"> Serializd
+1. Get your API key from your [Serializd account](https://serializd.com/).
+2. Enable it:
+   ```
+   SERIALIZD_ENABLED: true
+   SERIALIZD_API_KEY: "your-api-key"
+   ```
+
+---
+
+### <img src="/src/assets/musicboard-icon.png" width="20"> Musicboard
+1. Obtain your Musicboard API key and username.
+2. Enable in Docker Compose:
+   ```
+   MUSICBOARD_ENABLED: true
+   MUSICBOARD_USERNAME: "your-username"
+   MUSICBOARD_API_KEY: "your-key"
+   ```
+3. Adds syncing support for your Plex Music library (albums, artists, reviews)
+
+
+---
+
+### <img src="/src/assets/TMDb-icon.png" width="20"> TMDb
+1. Get your TMDb API key from [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api).
+2. Enable in Docker Compose:
+   ```
+   TMDB_ENABLED: true
+   TMDB_API_KEY: "your-tmdb-api-key"
+   ```
+   3. Used as a fallback for metadata (genre, posters, overview)
+
+---
+
+### 🗂 Custom Lists
+1. Enable to auto-create **Plex Smart Collections** based on  your Trakt, Letterboxd, or Serializd lists:
+   ```
+   CUSTOM_LISTS_ENABLED: true
+   ```
+
+---
+
+### 🧠 Logging & Status
+
+All logs are written to /logs inside your container.
+Each sync cycle outputs a summary:
+```
+📊 Summary: {'plex->trakt_updated': 3, 'plex_count': 124, 'trakt_count': 117, 'imdb_ratings': 
+```
 
 
 MIT © 2025 nate872711
