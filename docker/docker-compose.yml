@@ -3,9 +3,39 @@ services:
     image: nate8727/watchweave:latest
     container_name: watchweave
     restart: unless-stopped
-    env_file: .env
+    ports:
+      - "8089:8089"
+    environment:
+      # 🌐 General
+      - TZ=Etc/UTC
+      - LOG_LEVEL=INFO
+
+      # 🎬 Plex
+      - PLEX_ENABLED=true
+      - PLEX_SERVER_URL=http://plex.local:32400
+      - PLEX_TOKEN=YOUR_PLEX_TOKEN
+      - PLEX_USERNAME=YOUR_PLEX_USERNAME
+
+      # 🎞️ Letterboxd
+      - LETTERBOXD_ENABLED=true
+      - LETTERBOXD_USERNAME=YOUR_LETTERBOXD_USERNAME
+      - LETTERBOXD_PASSWORD=YOUR_LETTERBOXD_PASSWORD
+
+      # 📺 Trakt
+      - TRAKT_ENABLED=true
+      - TRAKT_CLIENT_ID=YOUR_TRAKT_CLIENT_ID
+      - TRAKT_CLIENT_SECRET=YOUR_TRAKT_CLIENT_SECRET
+      - TRAKT_ACCESS_TOKEN=YOUR_TRAKT_ACCESS_TOKEN
+      - TRAKT_REFRESH_TOKEN=YOUR_TRAKT_REFRESH_TOKEN
+
+      # 🎥 IMDb
+      - IMDB_ENABLED=true
+      - IMDB_CSV_PATH=/config/imdb_ratings.csv
+
+      # 🔄 Sync
+      - SYNC_INTERVAL_MINUTES=30
+      - SYNC_DIRECTION=plex->trakt,letterboxd,imdb
+
     volumes:
       - ./config:/config
       - ./logs:/logs
-    ports:
-      - "8089:8089"
