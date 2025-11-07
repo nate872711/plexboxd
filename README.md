@@ -142,7 +142,7 @@ services:
 ### <img src="/src/assets/plex-icon.png" width="20"> Plex
 1. [Sign in to your Plex account](https://support.plex.tv/articles/200933616-plex-account/) in Plex Web App  
 2. Browse to a library item and [view the XML](https://support.plex.tv/articles/201998867-investigate-media-information-and-formats/) for it
-3. Look in the URL and find the token as the **X-Plex-Token** value
+3. Look in the URL and find the token as the `X-Plex-Token` value
 4. Paste the token into the docker-compose.yml
 
    ```bash
