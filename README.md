@@ -140,8 +140,11 @@ services:
 ## ⚙️ Setup Guide
 
 ### 🎬 Plex
-1. Log into Plex → Account → **Tokens** → copy your `X-Plex-Token`.  
-2. Update your environment variables:
+1. [Sign in to your Plex account](https://support.plex.tv/articles/200933616-plex-account/) in Plex Web App  
+2. Browse to a library item and [view the XML](https://support.plex.tv/articles/201998867-investigate-media-information-and-formats/) for it
+3. Look in the URL and find the token as the **X-Plex-Token** value
+4. Paste the token into the docker-compose.yml
+
    ```bash
    PLEX_ENABLED=true
    PLEX_SERVER_URL=http://your-plex-ip:32400
