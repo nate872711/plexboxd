@@ -177,16 +177,6 @@ services:
 
 ---
 
-### <img src="/src/assets/letterboxd-icon.png" width="20"> Letterboxd
-1. Supply your **username** and **password** for watchlist and list syncing:
-   ```bash
-   LETTERBOXD_ENABLED=true
-   LETTERBOXD_USERNAME=your-username
-   LETTERBOXD_PASSWORD=your-password
-   ```
-
----
-
 ### <img src="/src/assets/Trakt.tv-icon.png" width="20"> Trakt.tv
 1. Go to [https://trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)  
 2. Create a new application using:
@@ -204,6 +194,16 @@ services:
    TRAKT_CLIENT_SECRET=your-client-secret
    TRAKT_ACCESS_TOKEN=your-access-token
    TRAKT_REFRESH_TOKEN=your-refresh-token
+   ```
+
+---
+
+### <img src="/src/assets/letterboxd-icon.png" width="20"> Letterboxd
+1. Supply your **username** and **password** for watchlist and list syncing:
+   ```bash
+   LETTERBOXD_ENABLED=true
+   LETTERBOXD_USERNAME=your-username
+   LETTERBOXD_PASSWORD=your-password
    ```
 
 ---
