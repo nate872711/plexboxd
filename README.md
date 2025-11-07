@@ -125,6 +125,7 @@ services:
     volumes:
       - ./config:/config
       - ./logs:/logs
+      # /your-config-directory:/config
 
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8089/health || exit 1"]
