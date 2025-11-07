@@ -28,30 +28,30 @@ This document outlines upcoming and potential enhancements planned for **WatchWe
 
 ## 🌐 2. Integrations Expansion
 
-### 📺 TheTVDB Integration
+### 📺 TheTVDB Integration (✅Added in v.1.0.1)
 - **Goal:** Improve TV show matching and metadata enrichment.
 - **Implementation:** Use [TheTVDB API v4](https://thetvdb.github.io/v4-api/) for series and episode resolution.
 - **Impact:** Enhances sync reliability for Plex libraries using TheTVDB agent.
 
-### 🎞️ Serializd Integration
+### 🎞️ Serializd Integration (✅Added in v.1.0.1)
 - **Goal:** Add support for syncing watched history, ratings, and lists with [Serializd](https://serializd.com/).
 - **Implementation:** Use GraphQL API mirroring Trakt's structure.
 - **Impact:** Expands WatchWeave’s ecosystem to new social film-tracking users.
 
-### 🎵 Musicboard Integration
+### 🎵 Musicboard Integration (✅Added in v.1.0.1)
 - **Goal:** Sync Plex music listening activity with [Musicboard](https://musicboard.app/).
 - **Implementation:** Match Plex albums and artists, push plays, and sync favorites/reviews.
 - **Impact:** Adds support for music collections and listening analytics.
 
-### 📺 TMDb Integration
+### 📺 TMDb Integration (✅Added in v.1.0.1)
 - **Goal:** Pull extra metadata (genre, poster, overview) to improve matching.
 - **Impact:** Enriches sync logs and supports deeper integration.
 
-### 🎧 TV & Music Libraries
+### 🎧 TV & Music Libraries (✅Added in v.1.0.1)
 - **Goal:** Extend support to Plex TV shows (`type=2`) and music (`type=10`).
 - **Impact:** Broader cross-media coverage.
 
-### 🗂️ Custom Lists Support
+### 🗂️ Custom Lists Support (✅Added in v.1.0.1)
 - **Goal:** Mirror Trakt and Letterboxd lists as Plex Smart Collections.
 - **Impact:** Creates synced dynamic playlists in Plex.
 
@@ -151,8 +151,7 @@ Planned for future milestones:
 - **v1.1.0:** Add incremental sync + SQLite cache  
 - **v1.2.0:** Introduce Web UI dashboard  
 - **v1.3.0:** Plugin framework & REST API  
-- **v1.4.0:** Add Serializd and Musicboard integrations  
-- **v1.5.0:** Add TheTVDB data enrichment
+
 
 ---
 
