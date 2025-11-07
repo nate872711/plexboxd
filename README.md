@@ -50,10 +50,10 @@ It syncs your watched movies and shows, updates your Letterboxd diary, manages w
 - [x] TV Libraries + TheTVDB + Serializd
 - [x] Music Libraries + Musicboard
 - [x] TMDb Integration
+- [x] Custom Lists Support
 - [ ] Web UI / Dashboard
 - [ ] Smart Retry + Failure Queue System
 - [ ] Bidirectional + Incremental Sync
-- [ ] Custom Lists Support
 - [ ] Token Refresh for All Services
 - [ ] Plugin Framework
 - [ ] Rest API/SDK
