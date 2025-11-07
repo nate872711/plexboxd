@@ -43,6 +43,7 @@ It syncs your watched movies and shows, updates your Letterboxd diary, manages w
 
 ## 🛣️ Roadmap
 
+- [ ] Git Tag Releases (e.g.,`v.1.0.1`, `v1.2.0`)
 - [ ] Web UI / Dashboard
 - [ ] Smart Retry + Failure Queue System
 - [ ] Bidirectional + Incremental Sync
