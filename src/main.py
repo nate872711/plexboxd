@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import time, logging
-from src.config_loader import load_config, generate_config_from_env
+from config_loader import load_config, generate_config_from_env
 from src.integrations.sync_engine import run_sync_cycle
 from src.integrations.trakt import refresh_trakt_token
 def setup_logging(level): logging.basicConfig(level=level.upper() if isinstance(level,str) else "INFO", format="[%(asctime)s] [%(levelname)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
