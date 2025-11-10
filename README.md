@@ -200,7 +200,7 @@ services:
 
 ## ⚙️ Setup Guide
 
-### <img src="/src/assets/plex-icon.png" width="20"> Plex
+### <img src="app/src/assets/plex-icon.png" width="20"> Plex
 1. [Sign in to your Plex account](https://support.plex.tv/articles/200933616-plex-account/) in Plex Web App  
 2. Browse to a library item and [view the XML](https://support.plex.tv/articles/201998867-investigate-media-information-and-formats/) for it
 3. Look in the URL and find the token as the `X-Plex-Token` value
@@ -217,7 +217,7 @@ services:
 
 ---
 
-### <img src="/src/assets/tautulli-icon.png" width="20"> Tautulli (Optional)
+### <img src="app/src/assets/tautulli-icon.png" width="20"> Tautulli (Optional)
 1. Open your Tautulli web interface → Settings → Web Interface → API Key  
 2. Copy your key and URL:
    ```bash
@@ -228,7 +228,7 @@ services:
 
 ---
 
-### <img src="/src/assets/Trakt.tv-icon.png" width="20"> Trakt.tv
+### <img src="app/src/assets/Trakt.tv-icon.png" width="20"> Trakt.tv
 1. Go to [https://trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)  
 2. Create a new application using:
    - **Redirect URI:** `urn:ietf:wg:oauth:2.0:oob`  
@@ -249,7 +249,7 @@ services:
 
 ---
 
-### <img src="/src/assets/letterboxd-icon.png" width="20"> Letterboxd
+### <img src="app/src/assets/letterboxd-icon.png" width="20"> Letterboxd
 1. Supply your **username** and **password** for watchlist and list syncing:
    ```bash
    LETTERBOXD_ENABLED=true
@@ -259,7 +259,7 @@ services:
 
 ---
 
-### <img src="/src/assets/imdb-icon.png" width="20"> IMDb
+### <img src="app/src/assets/imdb-icon.png" width="20"> IMDb
 1. Visit your IMDb ratings page and click **Export**.  
 2. Save the CSV as `imdb_ratings.csv` in your `/config` folder.  
 3. Set:
@@ -270,7 +270,7 @@ services:
    
 ---
 
-### <img src="/src/assets/TheTVDB-icon.png" width="20"> TheTVDB
+### <img src="app/src/assets/TheTVDB-icon.png" width="20"> TheTVDB
 1. Create an API key and user PIN from your [TheTVDB account settings](https://thetvdb.com/dashboard/account).
 2. Enable in Docker Compose:
    ```
@@ -283,7 +283,7 @@ services:
 
 ---
 
-### <img src="/src/assets/serializd-icon.png" width="20"> Serializd
+### <img src="app/src/assets/serializd-icon.png" width="20"> Serializd
 1. Get your API key from your [Serializd account](https://serializd.com/).
 2. Enable it:
    ```
@@ -293,7 +293,7 @@ services:
 
 ---
 
-### <img src="/src/assets/musicboard-icon.png" width="20"> Musicboard
+### <img src="app/src/assets/musicboard-icon.png" width="20"> Musicboard
 1. Obtain your Musicboard API key and username.
 2. Enable in Docker Compose:
    ```
@@ -306,7 +306,7 @@ services:
 
 ---
 
-### <img src="/src/assets/TMDb-icon.png" width="20"> TMDb
+### <img src="app/src/assets/TMDb-icon.png" width="20"> TMDb
 1. Get your TMDb API key from [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api).
 2. Enable in Docker Compose:
    ```
