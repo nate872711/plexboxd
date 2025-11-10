@@ -1,7 +1,7 @@
-# <img src="nate872711/watchweave/branding/watchweave-icon.png" width="20"> WatchWeave
+# <img src="/branding/watchweave-icon.png" width="20"> WatchWeave
 
 
-<img src="nate872711/watchweave/branding/watchweave-banner.png" width="500">
+<img src="/branding/watchweave-banner.png" width="500">
 
 
 
