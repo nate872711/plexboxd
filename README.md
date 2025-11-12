@@ -108,10 +108,8 @@ services:
       ##############################################################
       # By default, this works on macOS/Windows with Docker Desktop.
       # On Linux hosts, replace with the host IP (e.g., http://192.168.1.100:32400)
-      # Or set PLEX_REMOTE_URL to override from the environment.
       PLEX_ENABLED: true
-      PLEX_SERVER_URL: "${PLEX_REMOTE_URL:-http://host.docker.internal:32400}"
-      PLEX_SERVER_URL: "http://plex.local:32400"
+      PLEX_SERVER_URL: "http://YOUR_PLEX_SERVER_IP:32400}"
       PLEX_TOKEN: ""
       PLEX_USERNAME: ""
 
@@ -217,7 +215,7 @@ services:
    PLEX_TOKEN=your-plex-token
    ```
 ****
-#### 🖥️ Local Plex (macOS or Windows Desktop App)
+#### 🖥️ Local Plex on Docker (macOS or Windows Desktop App)
 ```yaml
 PLEX_SERVER_URL: "http://host.docker.internal:32400"
 ````
@@ -226,7 +224,7 @@ PLEX_SERVER_URL: "http://host.docker.internal:32400"
 No extra configuration or port forwarding required.
 
 ****
-#### 🧩 Linux Host or Remote Plex Server
+#### 🧩 Linux Host or Remote Plex Server on Same LAN (macOS or Windows Desktop App)
 
 If Plex runs on another device (e.g., NAS, Linux box, or another computer on your network),
 set the IP address or hostname of that machine instead:
@@ -234,7 +232,19 @@ set the IP address or hostname of that machine instead:
 ```yaml
 PLEX_SERVER_URL: "http://192.168.1.25:32400"
 ```
+****
+#### 🧩 Remote Plex Server Outside LAN
 
+If connecting to Plex from outside your LAN:
+- Obtain your External IP Address from your Plex Settings -> Remote Access -> "Public"
+- Open any movie, go to Get Info, and View XML.
+- Your External Plex IP will be listed at the beginning of the URL and ends after `.plex.direct:32400`
+- Paste your External Plex IP (begins with `https://`) into your `docker-compose.yml`
+- **NOTE** If you have issues with WatchWeave using the host.internal ip, you need to stop the container and remove all files for WatchWeave.<br>  Delete the config.yml and re-run the container
+
+```yaml
+PLEX_SERVER_URL: "http://YOUR_PLEX_EXTERNAL_IP.HASH_CODE.plex.direct:32400"
+```
 Make sure:
 
 -   Plex Remote Access is enabled (Settings → Remote Access)
@@ -242,8 +252,6 @@ Make sure:
 -   Port **32400** is open on your network or forwarded correctly
 
   
-> 💡 Tip: WatchWeave works fine even without Tautulli — it just uses Plex history directly.
-
 
 ---
 
