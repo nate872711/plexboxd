@@ -46,8 +46,9 @@ services:
       # 🎬 LETTERBOXD (OPTIONAL)
       ##############################################################
       LETTERBOXD_ENABLED: false
-      LETTERBOXD_USERNAME: ""
-      LETTERBOXD_PASSWORD: ""
+      LETTERBOXD_USERNAME: "your_letterboxd_username"
+      LETTERBOXD_PASSWORD: "your_letterboxd_password"
+      LETTERBOXD_DRY_RUN: "false"   # set to "true" if you want preview only
 
       ##############################################################
       # 🎥 IMDb (OPTIONAL)
